@@ -2,6 +2,7 @@ package org.webskey.dropwizard;
 
 import org.jdbi.v3.core.Jdbi;
 import org.webskey.dropwizard.dao.TestDao;
+import org.webskey.dropwizard.healthchecks.DatabaseHealthCheck;
 import org.webskey.dropwizard.resources.TestResource;
 
 import io.dropwizard.Application;
@@ -16,6 +17,7 @@ public class App extends Application<MyConfig> {
 	    final Jdbi jdbi = factory.build(e, c.getDataSourceFactory(), "test-database");
 	    final TestDao dao = jdbi.onDemand(TestDao.class);
 	    
+	    e.healthChecks().register("my database", new DatabaseHealthCheck(c.getDataSourceFactory()));	    
 		e.jersey().register(new TestResource(dao));
 	}
 
