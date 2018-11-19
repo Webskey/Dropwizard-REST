@@ -22,7 +22,17 @@
 			<artifactId>dropwizard-core</artifactId>
 			<version>1.3.7</version>
 		</dependency>
+		
+		<!-- FreeMarker View -->
+		
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-views-freemarker</artifactId>
+			<version>1.3.7</version>
+		</dependency>
+		
 		<!-- Database -->
+		
 		<dependency>
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-jdbi3</artifactId>
@@ -34,7 +44,9 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.2.5</version>
 		</dependency>
+		
 		<!-- Test -->
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

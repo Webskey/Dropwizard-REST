@@ -7,10 +7,17 @@ import org.webskey.dropwizard.resources.TestResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.jdbi3.JdbiFactory;
-import io.dropwizard.setup.Environment; 
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
+import io.dropwizard.views.ViewBundle; 
 
 public class App extends Application<MyConfig> {
     
+	@Override
+	public void initialize(Bootstrap<MyConfig> bootstrap) {
+	    bootstrap.addBundle(new ViewBundle<>());
+	}
+	
 	@Override
 	public void run(MyConfig c, Environment e) throws Exception {		
 		final JdbiFactory factory = new JdbiFactory();
